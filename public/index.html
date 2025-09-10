@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Emir Invest | AI-Powered Real-Time Investing in Crypto, Gold & Stocks</title>
+  <meta name="theme-color" content="#D8B166">
+  <meta name="description" content="Join Emir Invest — the future of AI-powered real-time investing. Trade crypto, gold, and stocks with ultra-low fees, vIBAN accounts, and a global crypto debit card.">
+
+  <!-- Keywords (optional, less relevant today but safe to include) -->
+  <meta name="keywords" content="Emir Invest, AI investing, crypto debit card, vIBAN, gold trading, stock trading, UK fintech, investment platform">
+
+  <!-- Open Graph (for Facebook, LinkedIn, WhatsApp) -->
+  <meta property="og:title" content="Emir Invest | AI-Powered Real-Time Investing">
+  <meta property="og:description" content="Invest smarter with Emir Invest. AI-driven trading, crypto debit card, and seamless international payments.">
+  <meta property="og:image" content="https://res.cloudinary.com/dfkqzua7u/image/upload/v1757505971/logo_qdhep1.png">
+  <meta property="og:url" content="https://emirinvest.co.uk">
+  <meta property="og:type" content="website">
+
+  <!-- Twitter Card (for Twitter/X previews) -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Emir Invest | AI-Powered Real-Time Investing">
+  <meta name="twitter:description" content="Trade crypto, gold, and stocks with AI-driven insights, global debit card, and vIBAN accounts.">
+  <meta name="twitter:image" content="https://res.cloudinary.com/dfkqzua7u/image/upload/v1757505971/logo_qdhep1.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="https://res.cloudinary.com/dfkqzua7u/image/upload/v1757505971/logo_qdhep1.png">
+
+
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+  /* tweak these variables to resize the header/logo/stroke */
+  :root{
+    --header-h: 84px;    /* visible height of the gold header area */
+    --logo-size: 88px;   /* diameter of logo image (inside the stroke) */
+    --stroke: 8px;       /* thickness of the gold stroke around logo */
+  }
+
+  /* Container for the curved header */
+  .curved-header {
+    position: relative;
+    height: var(--header-h);
+    width: 100%;
+    overflow: visible; /* allow logo to protrude */
+  }
+
+  /* Gold curved background that fills the header box */
+  .curved-header .curve-bg{
+    position: absolute;
+    inset: 0 0 0 0;                 /* top/right/bottom/left = 0 */
+    background: linear-gradient(180deg, #D8B166 0%, #C9A95A 100%);
+    z-index: 1;
+    /* soft dome curve — adjust radii if you want a shallower curve */
+    border-bottom-left-radius: 55% 22%;
+    border-bottom-right-radius: 55% 22%;
+    box-shadow: 0 6px 18px rgba(11,66,41,0.08);
+  }
+
+ .logo-wrapper {
+  position: absolute;
+  left: 50%;
+  top: 100%; /* anchor at bottom edge of the header */
+  transform: translate(-50%, -50%);
+  z-index: 3;
+  display: inline-block;
+  width: calc(var(--logo-size) + (var(--stroke) * 2));
+  height: calc(var(--logo-size) + (var(--stroke) * 2));
+  padding: var(--stroke);
+  border-radius: 50%;
+  box-sizing: border-box;
+
+  /* flat solid gold stroke */
+  background: #D8B166;
+
+  /* optional: subtle shadow for depth */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+  /* Actual PNG inside the ring */
+  .logo-img{
+    display: block;
+    width: var(--logo-size);
+    height: var(--logo-size);
+    object-fit: cover;
+    border-radius: 50%;
+    background: transparent;
+  }
+
+  /* Small-screen adjustments */
+  @media (max-width: 480px){
+    :root{
+      --header-h: 70px;
+      --logo-size: 72px;
+      --stroke: 6px;
+    }
+    .curved-header .curve-bg{
+      border-bottom-left-radius: 50% 20%;
+      border-bottom-right-radius: 50% 20%;
+    }
+  }
+
+.curved-header h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.curved-header p {
+  font-size: 1.2rem;
+  margin-bottom: 0;
+}
+
+@media (max-width: 300px) {
+  .curved-header .logo-img {
+    max-height: 60px;
+  }
+}
+
+    /* ===== BODY & BASE ===== */
+    body {
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      background: linear-gradient(135deg, #105E3A, #0B4229);
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+    .gold-text {
+      font-weight: bold;
+      color: #D8B166;
+    }
+    .section-title {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #D8B166;
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 90vh;
+      text-align: center;
+      padding: 1rem;
+    }
+    .hero h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+    .hero p {
+      font-size: 1.25rem;
+      margin-bottom: 2rem;
+      max-width: 600px;
+      line-height: 1.6;
+    }
+
+    /* ===== FORM ELEMENTS ===== */
+    .form-control {
+      border-radius: 50px;
+      padding: 1rem 1.5rem;
+      border: none;
+      background: rgba(255, 255, 255, 0.1);
+      color: #fff;
+    }
+    .form-control::placeholder {
+      color: rgba(255, 255, 255, 0.7);
+    }
+    .btn-primary {
+      border-radius: 50px;
+      padding: 0.75rem 2rem;
+      background-color: #D8B166;
+      border: none;
+      color: #0B4229;
+      font-weight: 600;
+      transition: background 0.3s, transform 0.2s;
+    }
+    .btn-primary:hover {
+      background-color: #c7a85b;
+      transform: translateY(-2px);
+    }
+
+    /* ===== COUNTDOWN ===== */
+    #countdown {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
+      font-size: 1.5rem;
+      font-weight: 600;
+    }
+
+    /* ===== FEATURES ===== */
+    .features {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      margin: 4rem 0;
+    }
+    .feature-card {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  padding: 2rem;
+  text-align: center;
+  transition: transform 0.3s, background 0.3s;
+
+  /* remove fixed width */
+  width: 100%;
+  /* allow card to stretch to full column height */
+  height: 100%;
+
+  /* center content vertically inside the card (optional) */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  min-height: 160px; /* optional minimum height */
+}
+
+    .feature-card:hover {
+      transform: translateY(-10px);
+      background: rgba(255, 255, 255, 0.1);
+    }
+    .feature-card h3 {
+      margin-bottom: 1rem;
+      font-weight: 600;
+      color: #D8B166;
+    }
+
+    /* ===== ALERTS ===== */
+    .alert-success {
+      background-color: rgba(216, 177, 102, 0.2);
+      color: #D8B166;
+    }
+    .alert-danger {
+      background-color: rgba(255, 0, 0, 0.2);
+      color: #ff4d4d;
+    }
+
+    /* ===== FOOTER ===== */
+    .footer {
+      background-color: #D8B166;
+      color: #0B4229;
+      font-weight: 600;
+      text-align: center;
+      padding: 1rem;
+      margin-top: auto;
+    }
+    .footer p {
+      margin: 0;
+      font-size: 0.9rem;
+    }
+      /* Hide Leaflet attribution */
+  .leaflet-control-attribution {
+    display: none !important;
+  }
+  </style>
+</head>
+
+<body>
+
+  <!-- LOGO -->
+<header class="curved-header mb-4">
+  <div class="curve-bg" aria-hidden="true"></div>
+
+  <!-- wrapper provides the gold stroke around the PNG -->
+  <div class="logo-wrapper">
+    <img
+      src="https://res.cloudinary.com/dfkqzua7u/image/upload/v1757505971/logo_qdhep1.png"
+      alt="Emir Invest Logo"
+      class="logo-img">
+  </div>
+</header>
+
+
+<!-- Waitlist Section -->
+<section class="hero py-5">
+    <h1 class="gold-text">EMIR INVEST</h1> 
+    <p>The future of real-time AI-powered investing. Gold, stocks, and crypto at your fingertips with global debit cards and vIBAN banking.</p>
+  <div class="container-fluid">
+    <div class="card shadow-lg border-0 rounded-4 text-center p-4 mx-auto" style="max-width: 600px; background: rgba(255,255,255,0.05); color: #fff;">
+      <div class="card-body">
+        <!-- Heading -->
+        <h4 class="gold-text mb-3">Your Investment Revolution Starts In</h4>
+
+        <!-- Countdown -->
+        <div id="countdown" class="d-flex justify-content-center gap-3 mb-3">
+          <div class="text-center">
+            <span id="days" class="d-block fw-bold gold-text display-4">0</span>
+            <small>Days</small>
+          </div>
+          <div class="text-center">
+            <span id="hours" class="d-block fw-bold gold-text display-4">0</span>
+            <small>Hours</small>
+          </div>
+          <div class="text-center">
+            <span id="minutes" class="d-block fw-bold gold-text display-4">0</span>
+            <small>Min</small>
+          </div>
+          <div class="text-center">
+            <span id="seconds" class="d-block fw-bold gold-text display-4">0</span>
+            <small>Sec</small>
+          </div>
+        </div>
+
+        <!-- Subtitle -->
+       <span class="small mb-3 mx-auto">
+          Secure your early access to <span class="gold-text">EMIR INVEST</span>.  
+          Join the waitlist today.
+        </span><br><br>
+
+        <!-- Waitlist Form -->
+        <form id="waitlistForm" class="d-flex flex-column flex-sm-row gap-2 justify-content-center align-items-center">
+          <input type="email" id="email" class="form-control text-center" placeholder="Enter your email" required>
+          <button type="submit" class="btn btn-primary fw-bold text-nowrap">
+            JOIN WAITLIST
+          </button>
+        </form>
+
+        <!-- Message -->
+        <div id="message" class="mt-2 small"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+ <section class="why-us py-5 text-center">
+  <div class="container">
+
+    <!-- Section Title -->
+    <h2 class="section-title text-center gold-text mb-3">Why Emir Invest Stands Out</h2>
+    
+    <!-- Section Description -->
+    <p class=" mb-5">
+      Experience modern investing made simple. From real-time AI insights to seamless global transactions, Emir Invest puts control of your money at your fingertips.
+    </p>
+
+    <!-- Features -->
+    <div class="row g-4 justify-content-center">
+      <div class="col-12 col-md-4">
+        <div class="feature-card h-100 text-center p-4">
+          <svg xmlns="http://www.w3.org/2000/svg" width="70" height="70" viewBox="0 0 24 24">
+            <g fill="none">
+              <path fill="#d8b166" fill-opacity="0.16" d="M20.6 4H3.4A2.4 2.4 0 0 0 1 6.4v11.2A2.4 2.4 0 0 0 3.4 20h17.2a2.4 2.4 0 0 0 2.4-2.4V6.4A2.4 2.4 0 0 0 20.6 4"/>
+              <path stroke="#d8b166" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5" d="M1 10h22M3.4 4h17.2A2.4 2.4 0 0 1 23 6.4v11.2a2.4 2.4 0 0 1-2.4 2.4H3.4A2.4 2.4 0 0 1 1 17.6V6.4A2.4 2.4 0 0 1 3.4 4"/>
+            </g>
+          </svg>
+          <h5 class="gold-text mt-3 mb-2">CRYPTO DEBIT CARD</h5>
+          <p class="small">
+            Turn your crypto into cash instantly and spend it anywhere with the Emir Invest debit card. Enjoy real-time conversion and seamless global payments.
+          </p>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-4">
+        <div class="feature-card h-100 text-center p-4">
+          <svg xmlns="http://www.w3.org/2000/svg" width="70" height="70" viewBox="0 0 24 24">
+            <path fill="#d8b166" fill-rule="evenodd" d="m12.67 2.217l8.5 4.75A1.5 1.5 0 0 1 22 8.31v1.44c0 .69-.56 1.25-1.25 1.25H20v8h1a1 1 0 1 1 0 2H3a1 1 0 1 1 0-2h1v-8h-.75C2.56 11 2 10.44 2 9.75V8.31c0-.522.27-1.002.706-1.274l8.623-4.819c.422-.211.92-.211 1.342 0z" class="duoicon-secondary-layer" opacity="0.3"/>
+            <path fill="#d8b166" fill-rule="evenodd" d="M12 6a1 1 0 1 0 0 2a1 1 0 0 0 0-2m5 5H7v8h2v-6h2v6h2v-6h2v6h2z" class="duoicon-primary-layer"/>
+          </svg>
+          <h5 class="gold-text mt-3 mb-2">vIBAN</h5>
+          <p class="small">
+            Manage international transactions effortlessly with your own virtual IBAN. Send and receive payments faster, reduce fees, and enjoy borderless banking.
+          </p>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-4">
+        <div class="feature-card h-100 text-center p-4">
+          <svg xmlns="http://www.w3.org/2000/svg" width="70" height="70" viewBox="0 0 24 24">
+            <path fill="none" stroke="#d8b166" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15v1.8c0 1.12 0 1.68.218 2.108a2 2 0 0 0 .874.874c.427.218.987.218 2.105.218H21M3 15V5m0 10l3.853-3.21l.004-.003c.697-.581 1.046-.872 1.425-.99a2 2 0 0 1 1.362.061c.367.153.688.474 1.332 1.118l.006.006c.654.654.981.982 1.354 1.133a2 2 0 0 0 1.385.046c.383-.128.733-.434 1.433-1.046L21 7"/>
+          </svg>
+          <h5 class="gold-text mt-3 mb-2">REAL-TIME INVESTMENT</h5>
+          <p class="small">
+            Experience AI-driven trading in gold, stocks, and crypto with ultra-low fees and 24/7 insights, helping you grow your wealth smarter and faster.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  <!-- WHY US -->
+ <section class="why-us py-5 text-center">
+  <div class="container">
+    <h2 class="section-title mb-5">Why Choose Emir Invest?</h2>
+<p class="mb-5">
+  At Emir Invest, we are redefining how people interact with money and investments.  
+  Whether you’re a seasoned investor or just starting, our platform combines banking-grade security, AI-powered insights, and seamless global access to give you the confidence to grow and manage your wealth — anytime, anywhere.
+</p>
+    <!-- row-cols makes columns auto-fill: 1 column on xs, 3 on md+ -->
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+      <div class="col">
+        <div class="feature-card h-100 d-flex flex-column justify-content-center">
+            <svg xmlns="http://www.w3.org/2000/svg" width="70" height="70" viewBox="0 0 24 24"><g fill="none" stroke="#d8b166" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"><path d="M14 12h.4a.6.6 0 0 1 .6.6v2.8a.6.6 0 0 1-.6.6H9.6a.6.6 0 0 1-.6-.6v-2.8a.6.6 0 0 1 .6-.6h.4m4 0v-2c0-.667-.4-2-2-2s-2 1.333-2 2v2m4 0h-4"/><path d="m2 8l9.732-4.866a.6.6 0 0 1 .536 0L22 8m-2 3v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-8"/></g></svg>
+          <h3>Regulated & Secure</h3>
+          <p>Banking-grade encryption and UK compliance. Your money is safe.</p>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="feature-card h-100 d-flex flex-column justify-content-center">
+            <svg xmlns="http://www.w3.org/2000/svg" width="70" height="70" viewBox="0 0 24 24"><path fill="#d8b166" d="M21 11V9h-2V7a2.006 2.006 0 0 0-2-2h-2V3h-2v2h-2V3H9v2H7a2.006 2.006 0 0 0-2 2v2H3v2h2v2H3v2h2v2a2.006 2.006 0 0 0 2 2h2v2h2v-2h2v2h2v-2h2a2.006 2.006 0 0 0 2-2v-2h2v-2h-2v-2Zm-4 6H7V7h10Z"/><path fill="#d8b166" d="M11.361 8h-1.345l-2.01 8h1.027l.464-1.875h2.316L12.265 16h1.062Zm-1.729 5.324L10.65 8.95h.046l.983 4.374ZM14.244 8h1v8h-1z"/></svg>
+          <h3>AI-Powered Insights</h3>
+          <p>Smart algorithms analyze markets in real time for better investing.</p>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="feature-card h-100 d-flex flex-column justify-content-center">
+            <svg xmlns="http://www.w3.org/2000/svg" width="70" height="70" viewBox="0 0 24 24"><path fill="#d8b166" d="M10.054 2.094a3 3 0 0 1 3.892 0l1.348 1.149a1 1 0 0 0 .57.236l1.765.14a3 3 0 0 1 2.752 2.752l.14 1.766a1 1 0 0 0 .236.569l1.149 1.348a3 3 0 0 1 0 3.892l-1.149 1.348a1 1 0 0 0-.236.569l-.14 1.765a3 3 0 0 1-2.752 2.752l-1.766.14a1 1 0 0 0-.569.237l-1.348 1.148a3 3 0 0 1-3.892 0l-1.348-1.148a1 1 0 0 0-.569-.236l-1.765-.141a3 3 0 0 1-2.752-2.752l-.14-1.765a1 1 0 0 0-.237-.57l-1.148-1.348a3 3 0 0 1 0-3.891l1.148-1.348a1 1 0 0 0 .236-.57l.141-1.765A3 3 0 0 1 6.372 3.62l1.765-.14a1 1 0 0 0 .57-.236zm2.595 1.522a1 1 0 0 0-1.297 0l-1.348 1.15a3 3 0 0 1-1.708.706l-1.765.141a1 1 0 0 0-.917.917l-.141 1.766a3 3 0 0 1-.707 1.707l-1.15 1.348a1 1 0 0 0 0 1.297l1.15 1.348a3 3 0 0 1 .707 1.707l.14 1.766a1 1 0 0 0 .918.917l1.765.141a3 3 0 0 1 1.708.707l1.348 1.15a1 1 0 0 0 1.297 0l1.348-1.15a3 3 0 0 1 1.707-.707l1.765-.14a1 1 0 0 0 .918-.918l.14-1.766c.05-.629.298-1.226.708-1.707l1.149-1.348a1 1 0 0 0 0-1.297l-1.15-1.348a3 3 0 0 1-.706-1.707l-.141-1.766a1 1 0 0 0-.918-.917l-1.765-.14a3 3 0 0 1-1.707-.708zm2.18 4.141l1.414 1.414l-7.071 7.072l-1.415-1.415zm-4.597 2.475a1.5 1.5 0 1 1-2.121-2.121a1.5 1.5 0 0 1 2.121 2.121m3.536 5.657a1.5 1.5 0 1 0 2.121-2.121a1.5 1.5 0 0 0-2.121 2.12"/></svg>
+          <h3>Ultra-Low Fees</h3>
+          <p>Transparent pricing so you keep more of your money.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  <section class="for-everyone py-5 text-center">
+    <div class="container">
+      <h2 class="section-title mb-5">Simple. Safe. For Everyone.</h2>
+      <p class="mb-5">
+  Finance doesn’t need to be complicated. Emir Invest is designed to make smart investing as easy as everyday banking.  
+  With intuitive tools, clear guidance, and seamless payment options, anyone can take control of their money — without needing to understand the complexity of crypto or global markets.
+</p>
+      <div class="row align-items-center">
+        <div class="col-md-6 mb-4">
+          <img src="https://res.cloudinary.com/dfkqzua7u/image/upload/v1757509497/emir-invest_vg2hky.jpg" alt="Easy Banking" class="img-fluid rounded">
+        </div>
+        <div class="col-md-6 mb-4">
+          <div class="feature-card mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" width="70" height="70" viewBox="0 0 20 20"><g fill="#d8b166" fill-rule="evenodd" clip-rule="evenodd"><path d="M5 9a2 2 0 1 0 0-4a2 2 0 0 0 0 4m0 1a3 3 0 1 0 0-6a3 3 0 0 0 0 6"/><path d="M3.854 8.896a.5.5 0 0 1 0 .708l-.338.337A3.47 3.47 0 0 0 2.5 12.394v1.856a.5.5 0 1 1-1 0v-1.856a4.47 4.47 0 0 1 1.309-3.16l.337-.338a.5.5 0 0 1 .708 0m11.792-.3a.5.5 0 0 0 0 .708l.338.337A3.47 3.47 0 0 1 17 12.094v2.156a.5.5 0 0 0 1 0v-2.156a4.47 4.47 0 0 0-1.309-3.16l-.337-.338a.5.5 0 0 0-.708 0"/><path d="M14 9a2 2 0 1 1 0-4a2 2 0 0 1 0 4m0 1a3 3 0 1 1 0-6a3 3 0 0 1 0 6m-4.5 3.25a2.5 2.5 0 0 0-2.5 2.5v1.3a.5.5 0 0 1-1 0v-1.3a3.5 3.5 0 0 1 7 0v1.3a.5.5 0 1 1-1 0v-1.3a2.5 2.5 0 0 0-2.5-2.5"/><path d="M9.5 11.75a2 2 0 1 0 0-4a2 2 0 0 0 0 4m0 1a3 3 0 1 0 0-6a3 3 0 0 0 0 6"/></g></svg>
+            <h3>No Crypto Knowledge Needed</h3>
+            <p>Investing made as simple as online banking. No complexity, no jargon.</p>
+          </div>
+          <div class="feature-card mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" width="70" height="70" viewBox="0 0 24 24"><path fill="#d8b166" d="M14.5 2a3.25 3.25 0 0 1 3.218 2.795a3.876 3.876 0 0 1 2.08 6.633A4 4 0 0 1 22 15v.25a4 4 0 0 1-3.367 3.95c-.431 1.613-1.901 2.8-3.627 2.8c-1.228 0-2.32-.59-3.006-1.504A3.75 3.75 0 0 1 8.994 22c-1.726 0-3.195-1.187-3.627-2.8A4 4 0 0 1 2 15.25V15a4 4 0 0 1 2.2-3.572a3.876 3.876 0 0 1 2.082-6.633A3.25 3.25 0 0 1 12 3.174A3.24 3.24 0 0 1 14.5 2m-5 1.5a1.75 1.75 0 0 0-1.75 1.75v.25a.75.75 0 0 1-.75.75h-.125a2.375 2.375 0 1 0 0 4.75H7a2.25 2.25 0 0 1 2.238 2.02l.012.23v.396a2 2 0 1 1-1.5 0v-.396l-.004-.077A.75.75 0 0 0 7 12.5H6A2.5 2.5 0 0 0 3.5 15v.25a2.5 2.5 0 0 0 2.5 2.5a.75.75 0 0 1 .719.542l.026.14h.002A2.276 2.276 0 0 0 8.994 20.5a2.255 2.255 0 0 0 2.256-2.25v-9h-.896a2 2 0 1 1 0-1.5h.896v-2.5A1.75 1.75 0 0 0 9.5 3.5m8.23 9a2 2 0 0 1-.98.852v.898a2.25 2.25 0 0 1-2.25 2.25h-1.75v1.75c0 1.24 1.011 2.25 2.256 2.25a2.276 2.276 0 0 0 2.247-2.068h.002l.026-.14A.75.75 0 0 1 18 17.75a2.5 2.5 0 0 0 2.5-2.5V15a2.5 2.5 0 0 0-2.5-2.5zM8.5 15a.5.5 0 1 0 0 1a.5.5 0 0 0 0-1m6-11.5a1.75 1.75 0 0 0-1.75 1.741V15h1.75a.75.75 0 0 0 .75-.75v-.898a1.999 1.999 0 1 1 2.646-2.483a2.374 2.374 0 0 0-.771-4.619H17a.75.75 0 0 1-.75-.75v-.25A1.75 1.75 0 0 0 14.5 3.5M16 11a.5.5 0 1 0 0 1a.5.5 0 0 0 0-1M8.5 8a.5.5 0 1 0 0 1a.5.5 0 0 0 0-1"/></svg>
+            <h3>Everyday Money, Just Smarter</h3>
+            <p>Pay bills, shop, and send money — we handle the crypto behind the scenes.</p>
+          </div>
+          <div class="feature-card">
+            <svg xmlns="http://www.w3.org/2000/svg" width="70" height="70" viewBox="0 0 24 24"><g fill="none" stroke="#d8b166" stroke-width="1"><path stroke-width="1.5" d="M2 8.57c0-1.197.482-1.93 1.48-2.486l4.11-2.287C9.743 2.6 10.82 2 12 2s2.257.6 4.41 1.797l4.11 2.287C21.517 6.64 22 7.373 22 8.57c0 .324 0 .487-.035.62c-.186.7-.821.811-1.434.811H3.469c-.613 0-1.247-.11-1.434-.811C2 9.056 2 8.893 2 8.569Z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.996 7h.009"/><path stroke-width="1.5" d="M4 10v8.5M8 10v8.5m8-8.5v8.5m4-8.5v8.5m-1 0H5a3 3 0 0 0-3 3a.5.5 0 0 0 .5.5h19a.5.5 0 0 0 .5-.5a3 3 0 0 0-3-3Z"/></g></svg>
+            <h3>Trusted Like a Bank</h3>
+            <p>Compliance and UK regulations give you full peace of mind.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="how-it-works py-5 text-center">
+    <div class="container">
+      <h2 class="section-title mb-5">How It Works</h2>
+      <p class="mb-5">
+  Getting started with Emir Invest is simple and effortless. In just a few steps, you’ll be ready to open your account, add funds, and start investing.  
+  We’ve streamlined the entire process so you can focus on growing your wealth — not dealing with complexity.
+</p>
+      <div class="row">
+        <div class="col-md-4 mb-4">
+          <div class="feature-card">
+            <svg xmlns="http://www.w3.org/2000/svg" width="70" height="70" viewBox="0 0 24 24"><path fill="#d8b166" d="M9.75 20.85c1.78-.7 1.39-2.63.49-3.85c-.89-1.25-2.12-2.11-3.36-2.94A9.8 9.8 0 0 1 4.54 12c-.28-.33-.85-.94-.27-1.06c.59-.12 1.61.46 2.13.68c.91.38 1.81.82 2.65 1.34l1.01-1.7C8.5 10.23 6.5 9.32 4.64 9.05c-1.06-.16-2.18.06-2.54 1.21c-.32.99.19 1.99.77 2.77c1.37 1.83 3.5 2.71 5.09 4.29c.34.33.75.72.95 1.18c.21.44.16.47-.31.47c-1.24 0-2.79-.97-3.8-1.61l-1.01 1.7c1.53.94 4.09 2.41 5.96 1.79m11.09-15.6c.22-.22.22-.58 0-.79l-1.3-1.3a.56.56 0 0 0-.78 0l-1.02 1.02l2.08 2.08M11 10.92V13h2.08l6.15-6.15l-2.08-2.08z"/></svg>
+            <h3>1. Sign Up</h3>
+            <p>Create your free account in minutes with quick onboarding.</p>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="feature-card">
+            <svg xmlns="http://www.w3.org/2000/svg" width="70" height="70" viewBox="0 0 256 256"><path fill="#d8b166" d="M120 140a12 12 0 0 1-12-12V45l-7.51 7.51a12 12 0 0 1-17-17l28-28a12 12 0 0 1 17 0l28 28a12 12 0 1 1-17 17L132 45v83a12 12 0 0 1-12 12m76-18.48V96a20 20 0 0 0-20-20h-12a12 12 0 0 0 0 24h8v68.3a32 32 0 0 0-43.71 43.7c.11.2.23.39.35.58l22.26 34a12 12 0 1 0 20.1-13.15l-22-33.66a8 8 0 0 1 14-7.77c.11.2.23.39.36.58l10.64 16.3a12 12 0 0 0 22-6.57V154a70.66 70.66 0 0 1 16 44.61V240a12 12 0 0 0 24 0v-41.35a94.91 94.91 0 0 0-40-77.13M76 76H64a20 20 0 0 0-20 20v104a12 12 0 0 0 24 0V100h8a12 12 0 0 0 0-24"/></svg>
+            <h3>2. Add Funds</h3>
+            <p>Deposit via bank transfer, debit card, or crypto — your choice.</p>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="feature-card">
+            <svg xmlns="http://www.w3.org/2000/svg" width="70" height="70" viewBox="0 0 14 14"><g fill="none" stroke="#d8b166" stroke-linecap="round" stroke-width="1"><path stroke-linejoin="round" d="M6.338 3.7a1 1 0 0 0-.943-.668H4.62a.893.893 0 0 0-.19 1.765l1.178.258a1 1 0 0 1-.214 1.977h-.667a1 1 0 0 1-.943-.666m1.278-3.334v-1m0 6v-1m1.907 6.467v-5.25a1.25 1.25 0 0 1 1.25-1.25v0a1.25 1.25 0 0 1 1.25 1.25v2.75h2a2 2 0 0 1 2 2v.5"/><path d="M5.063 9.564a4.531 4.531 0 1 1 4.489-3.911"/></g></svg>
+            <h3>3. Invest & Spend</h3>
+            <p>Invest instantly and spend worldwide with your Emir Invest card.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT US -->
+<section class="contact-us py-5 text-center">
+  <div class="container">
+    <h2 class="section-title mb-5">Contact Us</h2>
+    <p class="mb-5">
+  We’d love to hear from you. Whether you have questions about our platform, partnership opportunities, or just want to learn more, our team is here to help.  
+  Reach out to us anytime and we’ll get back to you as quickly as possible.
+</p>
+    <div class="row">
+      <!-- Map -->
+      <div class="col-md-6 mb-4">
+        <div id="map" style="height: 300px; border-radius: 15px; overflow: hidden;"></div>
+      </div>
+      <!-- Contact Details -->
+      <div class="col-md-6 d-flex flex-column justify-content-center align-items-start text-start">
+        <h1 class="gold-text">EMIR INVEST UK LTD</h1>
+        <p><span class="gold-text">Address:</span><br>
+          28th & 29th Floors, 30 St Mary Axe, London, United Kingdom, EC3A 8BF
+        </p>
+        <p><span class="gold-text">Email:</span><br>
+          <a href="mailto:contact@emirinvest.co.uk" class="text-white">contact@emirinvest.co.uk</a>
+        </p>
+        <p><span class="gold-text">Phone:</span><br>
+          <a href="tel:+442080893132" class="text-white">+44 20-8089-3132 </a>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Leaflet.js -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+<script>
+  // Initialize Leaflet Map
+  const map = L.map('map').setView([51.5145, -0.0803], 16); // coords near 30 St Mary Axe
+
+  // Add tile layer
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: false
+  }).addTo(map);
+
+  // Add marker
+  L.marker([51.5145, -0.0803])
+    .addTo(map)
+    .bindPopup(`
+  <div style="text-align:center; max-width:220px; margin:auto;">
+  <img src="https://res.cloudinary.com/dfkqzua7u/image/upload/v1757505971/logo_qdhep1.png" 
+       alt="Emir Invest Logo" style="max-width:100px; margin-bottom:10px;">
+  <p style="margin:0; font-weight:bold;">EMIR INVEST UK LTD</p>
+  <p style="margin:0;">30 St Mary Axe, London<br>United Kingdom, EC3A 8BF</p>
+
+  <a href="https://www.google.com/maps/dir/?api=1&destination=30+St+Mary+Axe,+London,+UK+EC3A+8BF" 
+     target="_blank" 
+     class="btn btn-primary mt-3" 
+     style="border-radius:50px; color:#105E3A; border-color:#D8B166; font-weight:600;">
+    Get Directions
+  </a>
+</div>
+  `)
+    .openPopup();
+</script>
+
+
+  <!-- FOOTER -->
+  <footer class="footer mt-auto">
+    <div class="container text-center">
+      <p>EMIR INVEST UK LTD | Company Registration Number: 16304997</p>
+    </div>
+  </footer>
+
+  <!-- Countdown Script -->
+  <script>
+    const countdownDate = new Date("2025-12-01T00:00:00Z").getTime();
+    const daysEl = document.getElementById("days");
+    const hoursEl = document.getElementById("hours");
+    const minutesEl = document.getElementById("minutes");
+    const secondsEl = document.getElementById("seconds");
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const distance = countdownDate - now;
+
+      const days = Math.floor(distance / (1000*60*60*24));
+      const hours = Math.floor((distance % (1000*60*60*24)) / (1000*60*60));
+      const minutes = Math.floor((distance % (1000*60*60)) / (1000*60));
+      const seconds = Math.floor((distance % (1000*60)) / 1000);
+
+      daysEl.textContent = days;
+      hoursEl.textContent = hours;
+      minutesEl.textContent = minutes;
+      secondsEl.textContent = seconds;
+
+      if (distance < 0) {
+        document.getElementById("countdown").innerHTML = "We are live!";
+      }
+    }
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+  </script>
+
+  <!-- Waitlist Script -->
+  <script>
+    const form = document.getElementById('waitlistForm');
+    const message = document.getElementById('message');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const email = document.getElementById('email').value;
+
+      try {
+        const res = await fetch('/api/addEmail', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email }),
+        });
+
+        const data = await res.json();
+        if (res.ok) {
+          message.innerHTML = `<div class="alert alert-success">${data.message}</div>`;
+          form.reset();
+        } else {
+          message.innerHTML = `<div class="alert alert-danger">${data.message}</div>`;
+        }
+      } catch (err) {
+        message.innerHTML = `<div class="alert alert-danger">Error: ${err.message}</div>`;
+      }
+    });
+  </script>
+<script src="//code.tidio.co/7jdwlhmfkpm3yzxzi6x4lqnttu36hiuf.js" async></script>
+</body>
+</html>
