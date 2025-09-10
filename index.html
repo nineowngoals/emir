@@ -14,34 +14,24 @@
   body {
     font-family: 'Inter', sans-serif;
     margin: 0;
+    /* Brand gradient background */
+    background: linear-gradient(135deg, #105E3A, #0B4229);
     color: #fff;
-    min-height: 100vh;
     display: flex;
     flex-direction: column;
-
-    /* Green gradient as main background */
-    background: linear-gradient(135deg, #105E3A, #0B4229);
-
-    /* Overlay pattern of gold donut circles */
-    background-image: 
-      radial-gradient(circle, rgba(216, 177, 102, 0.6) 10%, transparent 11%),
-      radial-gradient(circle, rgba(216, 177, 102, 0.6) 10%, transparent 11%);
-    background-size: 40px 40px;        /* spacing of each tile */
-    background-position: 0 0, 20px 20px; /* staggered pattern */
-    background-repeat: repeat;
-    background-blend-mode: overlay; /* optional: blend gold with gradient */
+    min-height: 100vh;
   }
 
   .hero {
-    flex: 1;
     display: flex;
+    flex: 1;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    min-height: 100vh;
     text-align: center;
     padding: 2rem;
   }
-
 
   .hero h1 {
     font-size: 3rem;
