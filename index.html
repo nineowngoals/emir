@@ -12,39 +12,38 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   
   <style>
-  /* ===== CURVED HEADER WITH LOGO ===== */
-.curved-header {
+ .curved-header {
   position: relative;
-  background: #D8B166; /* Gold */
-  color: #0B4229;
-  text-align: center;
-  padding: 0; /* remove padding so curve can be precise */
+  height: 120px; /* adjust as needed */
   overflow: hidden;
+  text-align: center;
 }
 
-/* Gold curve background that stops halfway */
+/* gold curve background */
 .curved-header::before {
   content: "";
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  height: 50%; /* only half height */
+  height: 100%;
   background: #D8B166;
-  border-bottom-left-radius: 50% 40%;
-  border-bottom-right-radius: 50% 40%;
+  border-bottom-left-radius: 50% 60%;
+  border-bottom-right-radius: 50% 60%;
   z-index: 1;
 }
 
-/* Logo centered */
+/* logo in center, half overlapping the curve */
 .curved-header .logo-img {
+  position: absolute;
+  top: 50%; /* start from middle of header */
+  left: 50%;
+  transform: translate(-50%, -50%); /* perfect centering */
   max-height: 80px;
   width: auto;
-  display: block;
-  margin: 0 auto;
-  position: relative;
-  z-index: 2; /* stays above the gold curve */
+  z-index: 2; /* above gold background */
 }
+
 
 .curved-header h1 {
   font-size: 2.5rem;
