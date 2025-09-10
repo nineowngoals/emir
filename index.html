@@ -12,42 +12,75 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   
   <style>
- .curved-header {
-  position: relative;
-  background: #D8B166; /* Gold */
-  text-align: center;
-  height: 80px; /* adjust as needed */
-  border-bottom-left-radius: 10% 30%;
-  border-bottom-right-radius: 10% 30%;
-  overflow: visible; /* allow logo to stick out */
-}
+  /* tweak these variables to resize the header/logo/stroke */
+  :root{
+    --header-h: 84px;    /* visible height of the gold header area */
+    --logo-size: 88px;   /* diameter of logo image (inside the stroke) */
+    --stroke: 8px;       /* thickness of the gold stroke around logo */
+  }
 
-/* logo positioned so curve stops mid-way */
-.curved-header .logo-img {
-  position: absolute;
-  bottom: -40px; /* pushes logo down so curve ends mid-logo */
-  left: 50%;
-  transform: translateX(-50%);
-  max-height: 80px;
-  width: auto;
-  z-index: 2;
-  background: transparent;
-}
+  /* Container for the curved header */
+  .curved-header {
+    position: relative;
+    height: var(--header-h);
+    width: 100%;
+    overflow: visible; /* allow logo to protrude */
+  }
 
-.logo-wrapper {
-  display: inline-block;
-  padding: 6px; /* thickness of the stroke */
-  border-radius: 50%; /* make it round */
-  background: #D8B166; /* gold border */
-}
+  /* Gold curved background that fills the header box */
+  .curved-header .curve-bg{
+    position: absolute;
+    inset: 0 0 0 0;                 /* top/right/bottom/left = 0 */
+    background: linear-gradient(180deg, #D8B166 0%, #C9A95A 100%);
+    z-index: 1;
+    /* soft dome curve — adjust radii if you want a shallower curve */
+    border-bottom-left-radius: 55% 22%;
+    border-bottom-right-radius: 55% 22%;
+    box-shadow: 0 6px 18px rgba(11,66,41,0.08);
+  }
 
-.logo-img {
-  display: block;
-  max-height: 80px;
-  width: auto;
-  border-radius: 50%; /* ensures circular clipping */
-}
+  /* Logo wrapper (the gold stroke ring) */
+  .logo-wrapper{
+    position: absolute;
+    left: 50%;
+    top: 100%; /* anchor at bottom edge of the header */
+    transform: translate(-50%, -50%); /* center horizontally and move up by half logo -> curve ends at logo midpoint */
+    z-index: 3; /* above the gold curve */
+    display: inline-block;
+    width: calc(var(--logo-size) + (var(--stroke) * 2));
+    height: calc(var(--logo-size) + (var(--stroke) * 2));
+    padding: var(--stroke);
+    border-radius: 50%;
+    box-sizing: border-box;
 
+    /* gold ring — gradient for a nicer metallic look */
+    background: radial-gradient(circle at 30% 20%, #FFF6E1, #D8B166 40%, #B8924F 100%);
+    /* subtle outer shadow for depth */
+    box-shadow: 0 8px 20px rgba(11,66,41,0.12), inset 0 -2px 6px rgba(0,0,0,0.06);
+  }
+
+  /* Actual PNG inside the ring */
+  .logo-img{
+    display: block;
+    width: var(--logo-size);
+    height: var(--logo-size);
+    object-fit: cover;
+    border-radius: 50%;
+    background: transparent;
+  }
+
+  /* Small-screen adjustments */
+  @media (max-width: 480px){
+    :root{
+      --header-h: 70px;
+      --logo-size: 72px;
+      --stroke: 6px;
+    }
+    .curved-header .curve-bg{
+      border-bottom-left-radius: 50% 20%;
+      border-bottom-right-radius: 50% 20%;
+    }
+  }
 
 .curved-header h1 {
   font-size: 2.5rem;
