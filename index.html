@@ -17,10 +17,14 @@
     /* Brand gradient background */
     background: linear-gradient(135deg, #105E3A, #0B4229);
     color: #fff;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
   }
 
   .hero {
     display: flex;
+    flex: 1;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -116,6 +120,20 @@
     background-color: rgba(255, 0, 0, 0.2);
     color: #ff4d4d;
   }
+   .footer {
+    background-color: #D8B166; /* Gold background */
+    color: #0B4229; /* Dark text for contrast */
+    font-weight: 600;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+  }
+
+  .footer p {
+    margin: 0;
+    font-size: 0.9rem;
+  }
+
 </style>
 
 </head>
@@ -159,7 +177,11 @@
       </div>
     </div>
   </section>
-
+<footer class="footer mt-auto py-3">
+  <div class="container text-center">
+    <p class="mb-0">EMIR INVEST UK LTD &nbsp; | &nbsp; Company Number: 16304997</p>
+  </div>
+</footer>
   <!-- Countdown Script -->
   <script>
     const countdownDate = new Date("2025-12-01T00:00:00Z").getTime();
