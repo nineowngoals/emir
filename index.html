@@ -328,6 +328,53 @@
     </div>
   </section>
 
+  <!-- CONTACT US -->
+<section class="contact-us py-5 text-center">
+  <div class="container">
+    <h2 class="section-title mb-5">Contact Us</h2>
+    <div class="row">
+      <!-- Map -->
+      <div class="col-md-6 mb-4">
+        <div id="map" style="height: 300px; border-radius: 15px; overflow: hidden;"></div>
+      </div>
+
+      <!-- Contact Details -->
+      <div class="col-md-6 d-flex flex-column justify-content-center align-items-start text-start">
+        <p><span class="gold-text">Address:</span><br>
+          28th & 29th Floors, 30 St Mary Axe, London, United Kingdom, EC3A 8BF
+        </p>
+        <p><span class="gold-text">Email:</span><br>
+          <a href="mailto:contact@emirinvest.co.uk" class="text-white">contact@emirinvest.co.uk</a>
+        </p>
+        <p><span class="gold-text">Phone:</span><br>
+          <a href="tel:+442012345678" class="text-white">+44 20 1234 5678</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Leaflet.js -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+<script>
+  // Initialize Leaflet Map
+  const map = L.map('map').setView([51.5145, -0.0803], 16); // coords near 30 St Mary Axe
+
+  // Add tile layer
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: false
+  }).addTo(map);
+
+  // Add marker
+  L.marker([51.5145, -0.0803])
+    .addTo(map)
+    .bindPopup('<b>Emir Invest</b><br>30 St Mary Axe, London')
+    .openPopup();
+</script>
+
+
   <!-- FOOTER -->
   <footer class="footer mt-auto">
     <div class="container text-center">
