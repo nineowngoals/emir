@@ -14,7 +14,7 @@ app.get('/', (req, res) => {
 
 // /dev route → development site
 app.get('/dev', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'dev', 'index.html'));
+  res.sendFile(path.join(__dirname, 'dev', 'index.html'));
 });
 
 // Catch-all 404
