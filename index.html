@@ -14,12 +14,20 @@
   body {
     font-family: 'Inter', sans-serif;
     margin: 0;
-    /* Brand gradient background */
-    background: linear-gradient(135deg, #105E3A, #0B4229);
     color: #fff;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
+
+    /* Gradient background */
+    background: linear-gradient(135deg, #105E3A, #0B4229);
+
+    /* Tiled donut pattern */
+    background-image: 
+      radial-gradient(circle, rgba(216, 177, 102, 0.6) 10%, transparent 10%),
+      radial-gradient(circle, rgba(216, 177, 102, 0.6) 10%, transparent 10%);
+    background-size: 40px 40px; /* size of each tile */
+    background-position: 0 0, 20px 20px; /* offset for staggered pattern */
   }
 
   .hero {
