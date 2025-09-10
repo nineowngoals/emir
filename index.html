@@ -14,34 +14,24 @@
   <style>
  .curved-header {
   position: relative;
-  height: 120px; /* adjust as needed */
-  overflow: hidden;
+  background: #D8B166; /* Gold */
   text-align: center;
+  height: 120px; /* adjust as needed */
+  border-bottom-left-radius: 50% 30%;
+  border-bottom-right-radius: 50% 30%;
+  overflow: visible; /* allow logo to stick out */
 }
 
-/* gold curve background */
-.curved-header::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: #D8B166;
-  border-bottom-left-radius: 50% 60%;
-  border-bottom-right-radius: 50% 60%;
-  z-index: 1;
-}
-
-/* logo in center, half overlapping the curve */
+/* logo positioned so curve stops mid-way */
 .curved-header .logo-img {
   position: absolute;
-  top: 50%; /* start from middle of header */
+  bottom: -40px; /* pushes logo down so curve ends mid-logo */
   left: 50%;
-  transform: translate(-50%, -50%); /* perfect centering */
+  transform: translateX(-50%);
   max-height: 80px;
   width: auto;
-  z-index: 2; /* above gold background */
+  z-index: 2;
+  background: transparent;
 }
 
 
