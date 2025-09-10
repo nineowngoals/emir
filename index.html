@@ -12,23 +12,42 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   
   <style>
-   /* ===== LOGO ===== */
-   .logo-header {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background-color: transparent;
-      padding: 1rem 0;
-    }
-    .logo-img {
-      max-height: 80px;
-      width: auto;
-    }
-    @media (max-width: 300px) {
-      .logo-img {
-        max-height: 60px;
-      }
-    }
+  /* ===== CURVED HEADER WITH LOGO ===== */
+.curved-header {
+  background: #D8B166; /* Gold */
+  color: #0B4229;      /* Dark green text */
+  text-align: center;
+  padding: 2rem 1rem 4rem 1rem; /* more bottom padding for curve */
+  border-bottom-left-radius: 50% 20%;
+  border-bottom-right-radius: 50% 20%;
+  position: relative;
+}
+
+.curved-header .logo-img {
+  max-height: 80px;
+  width: auto;
+  display: block;
+  margin: 0 auto 1rem auto; /* center logo with spacing */
+  position: relative;
+  z-index: 2; /* keeps logo above curved background */
+}
+
+.curved-header h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.curved-header p {
+  font-size: 1.2rem;
+  margin-bottom: 0;
+}
+
+@media (max-width: 300px) {
+  .curved-header .logo-img {
+    max-height: 60px;
+  }
+}
 
     /* ===== BODY & BASE ===== */
     body {
@@ -181,10 +200,12 @@
 <body>
 
   <!-- LOGO -->
-  <header class="logo-header">
-    <img src="https://res.cloudinary.com/dfkqzua7u/image/upload/v1757505971/logo_qdhep1.png" 
-         alt="Emir Invest Logo" class="logo-img">
-  </header>
+ <header class="curved-header">
+  <img src="https://res.cloudinary.com/dfkqzua7u/image/upload/v1757505971/logo_qdhep1.png" 
+       alt="Emir Invest Logo" class="logo-img">
+  <h1>EMIR INVEST</h1>
+  <p>The Future of Real-Time AI-Powered Investing</p>
+</header>
 
   <!-- HERO -->
   <section class="hero">
