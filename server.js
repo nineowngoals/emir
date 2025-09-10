@@ -4,15 +4,14 @@ const app = express();
 
 const PORT = process.env.PORT || 3000;
 
-// Serve all files in public/ (including /dev)
+// Serve production files at root
 app.use(express.static(path.join(__dirname, 'public')));
-
-// Root route → production site
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
-// /dev route → development site
+// Serve development files at /dev
+app.use('/dev', express.static(path.join(__dirname, 'dev')));
 app.get('/dev', (req, res) => {
   res.sendFile(path.join(__dirname, 'dev', 'index.html'));
 });
