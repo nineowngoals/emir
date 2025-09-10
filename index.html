@@ -14,22 +14,36 @@
   <style>
   /* ===== CURVED HEADER WITH LOGO ===== */
 .curved-header {
-  background: #D8B166; /* Gold */
-  color: #0B4229;      /* Dark green text */
-  text-align: center;
-  padding: 0rem 1rem 0rem 1rem; /* more bottom padding for curve */
-  border-bottom-left-radius: 50% 20%;
-  border-bottom-right-radius: 50% 20%;
   position: relative;
+  background: #D8B166; /* Gold */
+  color: #0B4229;
+  text-align: center;
+  padding: 0; /* remove padding so curve can be precise */
+  overflow: hidden;
 }
 
+/* Gold curve background that stops halfway */
+.curved-header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50%; /* only half height */
+  background: #D8B166;
+  border-bottom-left-radius: 50% 40%;
+  border-bottom-right-radius: 50% 40%;
+  z-index: 1;
+}
+
+/* Logo centered */
 .curved-header .logo-img {
   max-height: 80px;
   width: auto;
   display: block;
-  margin: 0 auto 1rem auto; /* center logo with spacing */
-  position: absolute;
-  z-index: 2; /* keeps logo above curved background */
+  margin: 0 auto;
+  position: relative;
+  z-index: 2; /* stays above the gold curve */
 }
 
 .curved-header h1 {
