@@ -19,27 +19,29 @@
     display: flex;
     flex-direction: column;
 
-    /* Gradient background */
+    /* Green gradient as main background */
     background: linear-gradient(135deg, #105E3A, #0B4229);
 
-    /* Tiled donut pattern */
+    /* Overlay pattern of gold donut circles */
     background-image: 
-      radial-gradient(circle, rgba(216, 177, 102, 0.6) 10%, transparent 10%),
-      radial-gradient(circle, rgba(216, 177, 102, 0.6) 10%, transparent 10%);
-    background-size: 40px 40px; /* size of each tile */
-    background-position: 0 0, 20px 20px; /* offset for staggered pattern */
+      radial-gradient(circle, rgba(216, 177, 102, 0.6) 10%, transparent 11%),
+      radial-gradient(circle, rgba(216, 177, 102, 0.6) 10%, transparent 11%);
+    background-size: 40px 40px;        /* spacing of each tile */
+    background-position: 0 0, 20px 20px; /* staggered pattern */
+    background-repeat: repeat;
+    background-blend-mode: overlay; /* optional: blend gold with gradient */
   }
 
   .hero {
-    display: flex;
     flex: 1;
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
     text-align: center;
     padding: 2rem;
   }
+
 
   .hero h1 {
     font-size: 3rem;
