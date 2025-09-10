@@ -4,7 +4,7 @@ const app = express();
 
 const PORT = process.env.PORT || 3000;
 
-// Serve all files inside public/ (including /dev)
+// Serve all files in public/ (including /dev)
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Root route → production site
