@@ -34,6 +34,20 @@
   background: transparent;
 }
 
+.logo-wrapper {
+  display: inline-block;
+  padding: 6px; /* thickness of the stroke */
+  border-radius: 50%; /* make it round */
+  background: #D8B166; /* gold border */
+}
+
+.logo-img {
+  display: block;
+  max-height: 80px;
+  width: auto;
+  border-radius: 50%; /* ensures circular clipping */
+}
+
 
 .curved-header h1 {
   font-size: 2.5rem;
@@ -204,8 +218,11 @@
 
   <!-- LOGO -->
  <header class="curved-header mb-3">
+  <div class="logo-wrapper">
   <img src="https://res.cloudinary.com/dfkqzua7u/image/upload/v1757505971/logo_qdhep1.png" 
-       alt="Emir Invest Logo" class="logo-img">
+       alt="Emir Invest Logo" 
+       class="logo-img">
+</div>
 </header>
 
   <!-- HERO -->
