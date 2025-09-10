@@ -39,25 +39,25 @@
     box-shadow: 0 6px 18px rgba(11,66,41,0.08);
   }
 
-  /* Logo wrapper (the gold stroke ring) */
-  .logo-wrapper{
-    position: absolute;
-    left: 50%;
-    top: 100%; /* anchor at bottom edge of the header */
-    transform: translate(-50%, -50%); /* center horizontally and move up by half logo -> curve ends at logo midpoint */
-    z-index: 3; /* above the gold curve */
-    display: inline-block;
-    width: calc(var(--logo-size) + (var(--stroke) * 2));
-    height: calc(var(--logo-size) + (var(--stroke) * 2));
-    padding: var(--stroke);
-    border-radius: 50%;
-    box-sizing: border-box;
+ .logo-wrapper {
+  position: absolute;
+  left: 50%;
+  top: 100%; /* anchor at bottom edge of the header */
+  transform: translate(-50%, -50%);
+  z-index: 3;
+  display: inline-block;
+  width: calc(var(--logo-size) + (var(--stroke) * 2));
+  height: calc(var(--logo-size) + (var(--stroke) * 2));
+  padding: var(--stroke);
+  border-radius: 50%;
+  box-sizing: border-box;
 
-    /* gold ring — gradient for a nicer metallic look */
-    background: radial-gradient(circle at 30% 20%, #FFF6E1, #D8B166 40%, #B8924F 100%);
-    /* subtle outer shadow for depth */
-    box-shadow: 0 8px 20px rgba(11,66,41,0.12), inset 0 -2px 6px rgba(0,0,0,0.06);
-  }
+  /* flat solid gold stroke */
+  background: #D8B166;
+
+  /* optional: subtle shadow for depth */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
 
   /* Actual PNG inside the ring */
   .logo-img{
