@@ -271,16 +271,36 @@
 
 <!-- Waitlist Section -->
 <div class="container my-5">
-  <div class="card shadow-lg border-0 rounded-4 text-center p-4" style="background: rgba(255,255,255,0.05); color: #fff;">
+  <div class="card shadow-lg border-0 rounded-4 text-center p-5" style="background: rgba(255,255,255,0.05); color: #fff;">
     <div class="card-body">
-      <h3 class="gold-text mb-3">Join the Emir Invest Waitlist</h3>
-     <div id="countdown">
-      <div><span id="days">0</span> Days</div>
-      <div><span id="hours">0</span> Hours</div>
-      <div><span id="minutes">0</span> Minutes</div>
-      <div><span id="seconds">0</span> Seconds</div>
-    </div>
+      <!-- Heading -->
+      <h3 class="gold-text mb-4">We Launch In</h3>
 
+      <!-- Countdown -->
+      <div id="countdown" class="d-flex justify-content-center gap-4 mb-4">
+        <div>
+          <span id="days" class="d-block fs-2 fw-bold gold-text">0</span>
+          <small>Days</small>
+        </div>
+        <div>
+          <span id="hours" class="d-block fs-2 fw-bold gold-text">0</span>
+          <small>Hours</small>
+        </div>
+        <div>
+          <span id="minutes" class="d-block fs-2 fw-bold gold-text">0</span>
+          <small>Minutes</small>
+        </div>
+        <div>
+          <span id="seconds" class="d-block fs-2 fw-bold gold-text">0</span>
+          <small>Seconds</small>
+        </div>
+      </div>
+
+      <!-- Subtitle -->
+      <p class="mb-4">
+        Be the first to access <span class="gold-text">Emir Invest</span> when we go live.  
+        Join our waitlist today and secure your spot.
+      </p>
 
       <!-- Waitlist Form -->
       <form id="waitlistForm" class="d-flex flex-column flex-sm-row gap-2 justify-content-center align-items-center">
@@ -289,6 +309,8 @@
           JOIN WAITING LIST
         </button>
       </form>
+
+      <!-- Message -->
       <div id="message" class="mt-3"></div>
     </div>
   </div>
