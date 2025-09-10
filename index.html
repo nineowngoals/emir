@@ -1,1 +1,179 @@
-Emir
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Emir Invest - Coming Soon</title>
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      margin:0;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      color: #fff;
+    }
+    .hero {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      text-align: center;
+      padding: 2rem;
+    }
+    .hero h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+    .hero p {
+      font-size: 1.25rem;
+      margin-bottom: 2rem;
+      max-width: 600px;
+    }
+    .form-control {
+      border-radius: 50px;
+      padding: 1rem 1.5rem;
+    }
+    .btn-primary {
+      border-radius: 50px;
+      padding: 0.75rem 2rem;
+    }
+    #countdown {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
+      font-size: 1.5rem;
+      font-weight: 600;
+    }
+    .features {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      margin-top: 4rem;
+      margin-bottom: 4rem;
+    }
+    .feature-card {
+      background: rgba(255,255,255,0.05);
+      border-radius: 20px;
+      padding: 2rem;
+      width: 250px;
+      text-align: center;
+      transition: transform 0.3s;
+    }
+    .feature-card:hover {
+      transform: translateY(-10px);
+    }
+    .feature-card h3 {
+      margin-bottom: 1rem;
+    }
+  </style>
+</head>
+<body>
+
+  <section class="hero">
+    <h1>Emir Invest</h1>
+    <p>The next-generation investment platform with crypto debit cards and virtual IBAN accounts. Get ready for the future of banking.</p>
+
+    <!-- Countdown Timer -->
+    <div id="countdown">
+      <div><span id="days">0</span> Days</div>
+      <div><span id="hours">0</span> Hours</div>
+      <div><span id="minutes">0</span> Minutes</div>
+      <div><span id="seconds">0</span> Seconds</div>
+    </div>
+
+    <!-- Waiting List Form -->
+    <form id="waitlistForm" class="d-flex flex-column flex-sm-row gap-2 justify-content-center align-items-center">
+      <input type="email" id="email" class="form-control" placeholder="Enter your email" required>
+      <button type="submit" class="btn btn-primary">Join Waiting List</button>
+    </form>
+    <div id="message" class="mt-3"></div>
+
+    <!-- Features -->
+    <div class="features">
+      <div class="feature-card">
+        <h3>Crypto Debit Card</h3>
+        <p>Spend your crypto anywhere in the world with instant conversion to fiat.</p>
+      </div>
+      <div class="feature-card">
+        <h3>vIBAN Accounts</h3>
+        <p>Virtual IBAN accounts for seamless international transactions.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Real-Time Investment</h3>
+        <p>Invest in stocks and crypto in real time with low fees.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Countdown Script -->
+  <script>
+    const countdownDate = new Date("2025-12-01T00:00:00Z").getTime();
+    const daysEl = document.getElementById("days");
+    const hoursEl = document.getElementById("hours");
+    const minutesEl = document.getElementById("minutes");
+    const secondsEl = document.getElementById("seconds");
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const distance = countdownDate - now;
+
+      const days = Math.floor(distance / (1000*60*60*24));
+      const hours = Math.floor((distance % (1000*60*60*24)) / (1000*60*60));
+      const minutes = Math.floor((distance % (1000*60*60)) / (1000*60));
+      const seconds = Math.floor((distance % (1000*60)) / 1000);
+
+      daysEl.textContent = days;
+      hoursEl.textContent = hours;
+      minutesEl.textContent = minutes;
+      secondsEl.textContent = seconds;
+
+      if (distance < 0) {
+        document.getElementById("countdown").innerHTML = "We are live!";
+      }
+    }
+
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+  </script>
+
+  <!-- Waiting List Script -->
+  <script>
+    const form = document.getElementById('waitlistForm');
+    const message = document.getElementById('message');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const email = document.getElementById('email').value;
+
+      try {
+        const res = await fetch('/api/addEmail', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email }),
+        });
+
+        const data = await res.json();
+        if (res.ok) {
+          message.innerHTML = `<div class="alert alert-success">${data.message}</div>`;
+          form.reset();
+        } else {
+          message.innerHTML = `<div class="alert alert-danger">${data.message}</div>`;
+        }
+      } catch (err) {
+        message.innerHTML = `<div class="alert alert-danger">Error: ${err.message}</div>`;
+      }
+    });
+  </script>
+
+</body>
+</html>
