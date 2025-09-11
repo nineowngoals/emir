@@ -5,7 +5,7 @@ if (!admin.apps.length) {
 
   admin.initializeApp({
     credential: admin.credential.cert(serviceAccount),
-    databaseURL: "https://emirinvest.firebaseio.com"
+    databaseURL: "https://emirinvest-uk.firebaseio.com" // your DB URL
   });
 }
 
