@@ -1,9 +1,0 @@
-{
-  "name": "emir-invest",
-  "version": "1.0.0",
-  "main": "index.js",
-  "dependencies": {
-    "firebase-admin": "^12.0.0",
-    "axios": "^1.6.0" 
-  }
-}
