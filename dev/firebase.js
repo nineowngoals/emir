@@ -1,15 +1,24 @@
 const admin = require("firebase-admin");
 
-if (!admin.apps.length) {
-  const serviceAccount = JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT);
+let db, auth;
 
-  admin.initializeApp({
-    credential: admin.credential.cert(serviceAccount),
-    databaseURL: "https://emirinvest-uk.firebaseio.com" // your DB URL
-  });
+try {
+  if (!admin.apps.length) {
+    const serviceAccount = JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT);
+
+    admin.initializeApp({
+      credential: admin.credential.cert(serviceAccount)
+      // Do NOT include databaseURL if using Firestore
+    });
+  }
+
+  db = admin.firestore();
+  auth = admin.auth();
+} catch (err) {
+  console.error("Firebase initialization failed:", err);
+  // Provide a dummy fallback to prevent server crash
+  db = null;
+  auth = null;
 }
-
-const db = admin.firestore();
-const auth = admin.auth();
 
 module.exports = { db, auth };

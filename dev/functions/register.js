@@ -1,28 +1,30 @@
-const admin = require('firebase-admin');
-
-if (!admin.apps.length) {
-  const serviceAccount = JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT);
-  admin.initializeApp({
-    credential: admin.credential.cert(serviceAccount)
-  });
-}
-
-const db = admin.firestore();
-const auth = admin.auth();
+const { db, auth } = require('../firebase'); // centralized Firebase config
 
 module.exports = async (req, res) => {
   try {
-    const { firstName, lastName, email } = req.body;
+    if (!db || !auth) {
+      return res.status(500).send({ error: "Firebase is not initialized" });
+    }
 
+    const { firstName, lastName, email, phoneNumber, wallet } = req.body;
+
+    // Validate required fields
     if (!firstName || !lastName || !email) {
-      return res.status(400).send({ error: "Missing required fields" });
+      return res.status(400).send({ error: "Missing required fields: firstName, lastName, email" });
     }
 
     // Create Firebase Authentication user
-    const userRecord = await auth.createUser({
-      email,
-      displayName: `${firstName} ${lastName}`
-    });
+    let userRecord;
+    try {
+      userRecord = await auth.createUser({
+        email,
+        displayName: `${firstName} ${lastName}`,
+        phoneNumber: phoneNumber || undefined
+      });
+    } catch (authErr) {
+      console.error("Firebase Auth error:", authErr);
+      return res.status(400).send({ error: authErr.message });
+    }
 
     const userId = userRecord.uid;
 
@@ -31,14 +33,21 @@ module.exports = async (req, res) => {
       firstName,
       lastName,
       email,
+      phoneNumber: phoneNumber || null,
       createdAt: new Date(),
       kycStatus: "pending",
-      wallet: {} // placeholder for crypto wallet data
+      wallet: wallet || {} // optional wallet info
     });
 
-    res.send({ message: "User registered successfully!", userId });
+    res.send({
+      message: "User registered successfully!",
+      userId,
+      email,
+      fullName: `${firstName} ${lastName}`
+    });
+
   } catch (err) {
-    console.error(err);
-    res.status(500).send({ error: err.message });
+    console.error("Register function error:", err);
+    res.status(500).send({ error: "Internal Server Error", details: err.message });
   }
 };
