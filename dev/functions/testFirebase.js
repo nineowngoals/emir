@@ -1,11 +1,10 @@
-const admin = require("firebase-admin");
+const admin = require('firebase-admin');
 
 if (!admin.apps.length) {
   const serviceAccount = JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT);
-
   admin.initializeApp({
     credential: admin.credential.cert(serviceAccount),
-    databaseURL: "https://emirinvest-uk.firebaseio.com" // make sure this is your project DB URL
+    databaseURL: "https://emirinvest-uk.firebaseio.com"
   });
 }
 
@@ -13,11 +12,7 @@ const db = admin.firestore();
 
 module.exports = async (req, res) => {
   try {
-    // write a simple test document
-    await db.collection("test").doc("ping").set({
-      timestamp: new Date()
-    });
-
+    await db.collection("test").doc("ping").set({ timestamp: new Date() });
     res.send("✅ Firestore is connected and wrote test document!");
   } catch (err) {
     console.error(err);
